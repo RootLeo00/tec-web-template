@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+
+<head>
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<title>Conversione valute</title>
+<link rel="stylesheet" href="../styles/default.css" type="text/css" />
+</head>
+
+<body>
+
+	<p>Si relializzi una interfaccia web single page che tramite jsp e
+		servlet consenta la conversione di una valuta in un'altra. Per
+		semplicita' si considerino solo EURO, DOLLARI (1 euro = 1.15
+		dollari) e STERLINE (1 euro = 0.86 sterline). Si mantenga anche la
+		cronologia delle conversioni effettuate dallo stesso utente nella
+		sessione attiva.</p>
+
+	<!-- realizzo:
+    1) un input text dove l'utente può inserire la valuta originale
+    2) un input text (in sola lettura) dove l'utente legge il risultato della conversione
+    3) un bottone per azionare la conversione
+    4) un menu a tendina a scelta singola per selezionare il tipo di valuta per l'input text
+-->
+	<form name="richiesta_converti" action="valutaServlet" method="post">
+		<label>Valuta da convertire</label> <input type="text"
+			name="valore_originale" value=""> <select
+			name="valuta_originale">
+			<option value="EURO">EURO</option>
+			<option value="DOLLARI">DOLLARI</option>
+			<option value="STERLINE">STERLINE</option>
+		</select> <br> <label>Tipo valuta del risultato</label> <select
+			name="valuta_convertita">
+			<option value="EURO">EURO</option>
+			<option value="DOLLARI">DOLLARI</option>
+			<option value="STERLINE">STERLINE</option>
+		</select> <input type="submit" name="converti" value="CONVERTI"> <br>
+	</form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC '-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN' 'http://java.sun.com/dtd/web-app_2_3.dtd'>
+
+<web-app>
+<!-- 1) General -->
+<!-- Name the application -->
+	<display-name>Valute</display-name>
+	<description>
+      a project to convert money from a type to another
+    </description>
+
+	<!-- Define servlets that are included in the application -->
+	<!-- 2) Servlets -->
+	<servlet>
+		<servlet-name>ConvertiValutaServlet</servlet-name>
+		<servlet-class>it.unibo.tw.web.ConvertiValutaServlet</servlet-class>
+	</servlet>
+	<!-- Map some URL's to the servlet -->
+	<servlet-mapping>
+		<servlet-name>ConvertiValutaServlet</servlet-name>
+		<url-pattern>/valutaServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Welcome pages -->
+	<!-- pleonastico: tomcat "tenta" in automatico le index.html e index.jsp -->
+	<!-- Define, in order of preference, which file to show when no filename 
+		is defined in the path <welcome-file>index.jsp</welcome-file> -->
+		
+				
+	<welcome-file-list>
+
+		<welcome-file>pages/valute.html</welcome-file>
+	</welcome-file-list>
+
+	<!-- Handle exceptions and errors -->
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errors/notfound.html</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/errors/failure.jsp</location>
+	</error-page>
+
+</web-app>
