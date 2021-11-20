@@ -1,0 +1,21 @@
+<html>
+
+	<head>
+
+		<title>DOM modifications succeed after the onload event</title>
+		<script type="text/javascript" src="scripts/utils.js"></script>
+		<script type="text/javascript" src="scripts/almostajax.js"></script>
+
+	</head>
+
+<!-- onload è un evento che dice che si è finito di caricare in questo caso il body -->
+	<body onload="almostAJAX('paragrafo')">
+
+		<p id="paragrafo">
+			testo del paragrafo che verr&agrave; cambiato dopo il caricamento del documento
+		</p>
+
+	<a href="index.html">back</a>
+	</body>
+
+</html>
