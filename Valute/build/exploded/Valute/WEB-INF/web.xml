@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE web-app PUBLIC '-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN' 'http://java.sun.com/dtd/web-app_2_3.dtd'>
 
 <web-app>
@@ -15,6 +15,7 @@
 		<servlet-name>ConvertiValutaServlet</servlet-name>
 		<servlet-class>it.unibo.tw.web.ConvertiValutaServlet</servlet-class>
 	</servlet>
+	
 	<!-- Map some URL's to the servlet -->
 	<servlet-mapping>
 		<servlet-name>ConvertiValutaServlet</servlet-name>
@@ -28,8 +29,7 @@
 		
 				
 	<welcome-file-list>
-
-		<welcome-file>pages/valute.html</welcome-file>
+		<welcome-file>/pages/valute.jsp</welcome-file>
 	</welcome-file-list>
 
 	<!-- Handle exceptions and errors -->
