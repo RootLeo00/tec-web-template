@@ -1,6 +1,9 @@
 package it.unibo.tw.web.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,43 +18,37 @@ import it.unibo.tw.web.beans.FeedDb;
 public class CategoriaServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	private Gson gson;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//1.	Si decodifica la stringa JSON e la si trasforma in oggetto Java utilizzando un apposito parser
+	public void init() throws ServletException {
+		super.init();
 		//Inizializzazione dell’oggetto Gson: 
-		Gson g= new Gson();
-		//deserializzazione di un oggetto
-		Feed f=g.fromJson(req.getParameter("feed"),Feed.class);
-		resp.getWriter().write("Ecco il risultato");
+		gson= new Gson();
 		
-		if(f==null) {
-			resp.getWriter().write("non è possibile calcolare il feed");
-
-		}
-		else {
-			FeedDb feedDb=new FeedDb();
-			for(Feed feed: feedDb.getFeeds())	{
-				if(feed.getCategory().equalsIgnoreCase(f.getCategory())) {
-					// inserisco il risultato nella risposta
-					f.setTitle(feed.getTitle());
-					f.setAuthor(feed.getAuthor());
-					f.setDescription(feed.getDescription());
-					f.setCategory(feed.getCategory());
-					f.setLink(feed.getLink());
-					f.setPubDate(feed.getPubDate());
-					f.setImageUrl(feed.getImageUrl());
-
-					//serializzazione di un oggetto :
-					//g.toJson(f);
-					
-					// passo la risposta
-					resp.getWriter().write(g.toJson(f));
-				}
-			}
-
-		}
 	}
+
+	//uso una service() perchè non so se arriverà una post oppure una get
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//1.	Si decodifica la stringa JSON e la si trasforma in oggetto Java utilizzando un apposito parser
+				//deserializzazione di un oggetto
+				Feed f=gson.fromJson(req.getParameter("feed"),Feed.class);
+				List<Feed> feeds=new ArrayList<Feed>();
+				if(f==null) {
+					return;
+				}
+				else {
+					FeedDb feedDb=new FeedDb();
+					for(Feed feed: feedDb.getFeeds())	{
+						if(feed.getCategory().equalsIgnoreCase(f.getCategory())) 	
+							feeds.add(feed);// inserisco il risultato nella risposta	
+					}
+					// passo la risposta
+					//serializzo l'oggetto con gson
+					resp.getWriter().println(gson.toJson(f));
+				}
+	}
+
 
 }

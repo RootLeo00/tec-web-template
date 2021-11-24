@@ -40,11 +40,11 @@
 								"type": "image/jpeg"
 							}
 					}
-					//var uri_feed=encodeURIComponent(JSON.stringify(feed));
+					var uri_feed=encodeURIComponent(JSON.stringify(feed));
 
 				</script>
 				<span id="carica feed"
-					onclick="caricaFeedJson('/categoriaServlet?feed='+JSON.stringify(feed),myGetElementById('feed'))">Cerca</span>
+					onclick="caricaFeedJson('categoriaServlet?feed='+uri_feed,myGetElementById('feed'))">Cerca</span>
 			</form>
 			<div id="feed" />
 		</div>

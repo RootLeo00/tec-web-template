@@ -18,10 +18,12 @@
 		<servlet-name>CategoriaServlet</servlet-name>
 		<servlet-class>it.unibo.tw.web.servlets.CategoriaServlet</servlet-class>
 	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>WaitingServlet</servlet-name>
 		<url-pattern>/waitingServlet</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>CategoriaServlet</servlet-name>
 		<url-pattern>/categoriaServlet</url-pattern>

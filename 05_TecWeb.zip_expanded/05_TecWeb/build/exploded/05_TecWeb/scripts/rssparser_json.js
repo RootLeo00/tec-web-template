@@ -104,7 +104,7 @@ function caricaFeedAJAXJson(theUri, theElement, theXhr) {
 	// impostazione richiesta asincrona in GET
 	// del file specificato
 	try {
-		xmlhttp.open("get", theUri, true);
+		theXhr.open("get", theUri, true);
 		//theXhr.open("get", theUri, true);
 	}
 	catch(e) {
