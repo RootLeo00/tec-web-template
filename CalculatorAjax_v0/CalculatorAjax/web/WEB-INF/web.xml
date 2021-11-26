@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <display-name>CalculatorAjax</display-name>
+    <description>
+      a project to implement a calculator
+    </description>
+
+	<!-- Context attributes to be used throughout the application -->
+	
+	<!-- <init-param> and <context-param> are static parameters which are stored in web.xml file.
+	 If you have any data which doesn't change frequently you can store it in one of them. -->
+	 <!-- If you want to store particular data which is confined to a particular servlet scope, then you can use <init-param> .
+	 Anything you declare inside <init-param> is only accessible only for that particular servlet.
+	 The init-param is declared inside the <servlet> tag. -->
+	 <!-- If you want to store data which is common for whole application and if it doesn't change frequently you can use <context-param>
+	  instead of servletContext.setAttribute() method of the application context.  -->
+	<context-param>
+		<param-name>dao</param-name>
+		<param-value>IDENTIFICATIVO_DELL_IMPLEMENTAZIONE</param-value>
+	</context-param>
+	
+    <!-- Define servlets that are included in the application -->
+
+    <servlet>
+        <servlet-name>CalculateServlet</servlet-name>
+        <servlet-class>it.unibo.tw.web.servlets.CalculateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CalculateServlet</servlet-name>
+        <url-pattern>/calculateServlet</url-pattern>
+    </servlet-mapping>
+	<!-- Welcome pages -->
+	<!-- pleonastico: tomcat "tenta" in automatico le index.html e index.jsp -->
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+		
+	<!-- Handle exceptions and errors -->
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errors/notfound.html</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/errors/failure.jsp</location>
+	</error-page>
+	 
+</web-app>

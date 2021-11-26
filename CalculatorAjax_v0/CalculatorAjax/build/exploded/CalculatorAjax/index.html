@@ -1,0 +1,40 @@
+	<!DOCTYPE html>
+
+	<html>
+			<head>
+				<meta charset="UTF-8" />
+				<title>Calculator page</title>
+				<script src="https://unpkg.com/react@15/dist/react.js"></script>
+				<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+				<!--<script src="https://fb.me/react-with-addons-0.14.0.js"></script>
+				<script src="https://fb.me/react-dom-0.14.0.js"></script>-->
+		<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"> </script>
+		
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+				<script type="text/javascript" src="scripts/requestCalculate.js"></script>
+				<script type="text/javascript" src="scripts/utils.js"></script>
+				<link rel="StyleSheet" href="styles/style.css" type="text/css" media="all" />
+
+		</head>
+				<body>
+			<!-- Placeholder -->
+			<div id="root"></div>
+			
+			<!-- React components -->
+				<script src="./scripts/react-components/Display.js" type="text/babel"></script>
+				<script src="./scripts/react-components/KeyBoard.js" type="text/babel"></script>
+				<script src="./scripts/react-components/App.js" type="text/babel"></script>
+				<!--  <script src="index.js" type="text/babel"></script>-->
+				
+				<script type="text/babel">
+					ReactDOM.render(
+						<React.StrictMode>
+							<App/>
+						</React.StrictMode>,
+						document.getElementById('root')
+					);
+				</script>
+		</body>
+	</html>
