@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">
+
+<head>
+<title>Tourist page</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="StyleSheet" href="styles/default.css" type="text/css"
+	media="all" />
+<script type="text/javascript" src="scripts/utils.js"></script>
+<script type="text/javascript" src="scripts/parserJson.js"></script>
+<script type="text/javascript" src="scripts/json/json.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+					<script>
+					function setJson(){
+					var x =$("#x").val();
+					var y =$("#y").val();
+					
+					//var categoria = document.getElementById("category").value;
+					console.log(x,y);// debug
+					var attraction = {
+							x:x,
+							y:y
+					}
+						//var uri_feed=encodeURIComponent(JSON.stringify(feed));
+						requestServerJson('infoservlet',myGetElementById('result'),JSON.stringify(attraction));
+					}
+
+				</script>
+</head>
+
+<body>
+
+	<div>
+
+		<h1>Touriste home page</h1>
+
+		<div>
+			<p>Insert your position:</p>
+			<form>
+
+<!-- onkeyup="caricaFeed( 'contents/categoria.jsp?category='+myGetElementById('category').value, myGetElementById('category'))" -->
+<label>X coordinate: </label><input type="text" id="x" value="" /><br>
+<label>Y coordinate: </label><input type="text" id="y" value="" /><br>
+				
+
+				<button id="load attraction"
+					onclick="setJson()">LOAD</button>
+			</form>
+			<div id="result" />
+		</div>
+
+	</div>
+	<a href="home.html">back</a>
+
+</body>
+
+</html>
